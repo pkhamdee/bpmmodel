@@ -1,16 +1,17 @@
 package com.aviva.ezflow.rules.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 public class DocType implements Serializable {
 
     private static final long serialVersionUID = 8502099560273656195L;
 
+    private String lob;
     private String docTypeCd;
     private String docTypeDesc;
-    private String docTypeKey;
-    private Set<Action> docTypeActionTypes;
+    private Set<DocTypeKey> listOfDocTypeKeys;
 
     public String getDocTypeCd() {
         return docTypeCd;
@@ -28,19 +29,27 @@ public class DocType implements Serializable {
         this.docTypeDesc = docTypeDesc;
     }
 
-    public String getDocTypeKey() {
-        return docTypeKey;
+    public Set<DocTypeKey> getListOfDocTypeKeys() {
+        return listOfDocTypeKeys;
     }
 
-    public void setDocTypeKey(String docTypeKey) {
-        this.docTypeKey = docTypeKey;
+    public void setListOfDocTypeKeys(Set<DocTypeKey> listOfDocTypeKeys) {
+        this.listOfDocTypeKeys = listOfDocTypeKeys;
     }
 
-    public Set<Action> getDocTypeActionTypes() {
-        return docTypeActionTypes;
+    public void addDocTypeKey(DocTypeKey docKey) {
+        if (null == listOfDocTypeKeys) {
+            listOfDocTypeKeys = new HashSet<DocTypeKey>();
+        }
+        listOfDocTypeKeys.add(docKey);
     }
 
-    public void setDocTypeActionTypes(Set<Action> docTypeActionTypes) {
-        this.docTypeActionTypes = docTypeActionTypes;
+    @Override
+    public String toString() {
+        return "DocType{" +
+                "docTypeCd='" + docTypeCd + '\'' +
+                ", docTypeDesc='" + docTypeDesc + '\'' +
+                ", listOfDocTypeKeys='" + listOfDocTypeKeys + '\'' +
+                '}';
     }
 }

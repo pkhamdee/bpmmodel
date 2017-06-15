@@ -1,0 +1,10 @@
+Collection<? extends Object> docTypeInquiries = kcontext.getKieRuntime().getObjects(new org.kie.api.runtime.ClassObjectFilter(DocTypeInquiry.class));
+
+if (null == docTypeInquiries || docTypeInquiries.size() != 1) {
+  System.err.println("## WARN: received invalid doc type inquiry");
+} else {
+  DocTypeInquiry inq = (DocTypeInquiry) docTypeInquiries.iterator().next();
+  for (DeptLOB deptLob : inq.getListOfDeptLOB()) {
+    kcontext.getKieRuntime().insert(deptLob);
+  }
+}

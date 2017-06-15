@@ -42,4 +42,12 @@ public class Product implements Serializable {
         result = 31 * result + (productDesc != null ? productDesc.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productCd='" + productCd + '\'' +
+                ", productDesc='" + productDesc + '\'' +
+                '}';
+    }
 }
