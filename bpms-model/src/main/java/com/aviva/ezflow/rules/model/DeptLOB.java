@@ -36,6 +36,24 @@ public class DeptLOB implements Serializable {
         this.listOfDocTypes = listOfDocTypes;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        DeptLOB deptLOB = (DeptLOB) o;
+
+        if (deptCd != null ? !deptCd.equals(deptLOB.deptCd) : deptLOB.deptCd != null) return false;
+        return lob != null ? lob.equals(deptLOB.lob) : deptLOB.lob == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = deptCd != null ? deptCd.hashCode() : 0;
+        result = 31 * result + (lob != null ? lob.hashCode() : 0);
+        return result;
+    }
+
     // Adds a DocType to listOfDocTypes
     public void addDocType(DocType docType) {
         if (null == listOfDocTypes) {

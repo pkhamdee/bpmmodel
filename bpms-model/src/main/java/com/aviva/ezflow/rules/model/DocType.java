@@ -45,6 +45,24 @@ public class DocType implements Serializable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        DocType docType = (DocType) o;
+
+        if (lob != null ? !lob.equals(docType.lob) : docType.lob != null) return false;
+        return docTypeCd != null ? docTypeCd.equals(docType.docTypeCd) : docType.docTypeCd == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = lob != null ? lob.hashCode() : 0;
+        result = 31 * result + (docTypeCd != null ? docTypeCd.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "DocType{" +
                 "docTypeCd='" + docTypeCd + '\'' +
