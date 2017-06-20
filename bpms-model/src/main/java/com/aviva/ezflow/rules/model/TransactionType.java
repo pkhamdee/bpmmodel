@@ -1,5 +1,7 @@
 package com.aviva.ezflow.rules.model;
 
+import com.aviva.ezflow.rules.model.helper.TranslationHelper;
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -9,7 +11,7 @@ public class TransactionType implements Serializable {
     private static final long serialVersionUID = -6314379719586488922L;
 
     private String transactionTypeCd;
-    private String transcationTypeDesc;
+    private String transactionTypeDesc;
     private Set<Action> transactionTypeActionTypes;
 
     public String getTransactionTypeCd() {
@@ -20,12 +22,12 @@ public class TransactionType implements Serializable {
         this.transactionTypeCd = transactionTypeCd;
     }
 
-    public String getTranscationTypeDesc() {
-        return transcationTypeDesc;
+    public String getTransactionTypeDesc() {
+        return transactionTypeDesc;
     }
 
-    public void setTranscationTypeDesc(String transcationTypeDesc) {
-        this.transcationTypeDesc = transcationTypeDesc;
+    public void setTransactionTypeDesc(String transactionTypeDesc) {
+        this.transactionTypeDesc = transactionTypeDesc;
     }
 
     public Set<Action> getTransactionTypeActionTypes() {
@@ -41,6 +43,13 @@ public class TransactionType implements Serializable {
             transactionTypeActionTypes = new HashSet<Action>();
         }
         transactionTypeActionTypes.add(action);
+    }
+
+    public void translate(String locale) {
+        if (null != locale && locale.length() > 0) {
+            TranslationHelper helper = TranslationHelper.getInstance();
+            setTransactionTypeDesc(helper.translate(locale, "TransactionTypeDesc", getTransactionTypeCd(), getTransactionTypeDesc()));
+        }
     }
 
     @Override
@@ -62,7 +71,7 @@ public class TransactionType implements Serializable {
     public String toString() {
         return "TransactionType{" +
                 "transactionTypeCd='" + transactionTypeCd + '\'' +
-                ", transcationTypeDesc='" + transcationTypeDesc + '\'' +
+                ", transactionTypeDesc='" + transactionTypeDesc + '\'' +
                 ", transactionTypeActionTypes=" + transactionTypeActionTypes +
                 '}';
     }

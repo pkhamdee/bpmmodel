@@ -25,6 +25,7 @@
             </snapshots>
         </repository>
     </repositories>
+    
     <pluginRepositories>
         <pluginRepository>
             <id>jboss-ga-plugin-repository</id>

@@ -1,5 +1,7 @@
 package com.aviva.ezflow.rules.model;
 
+import com.aviva.ezflow.rules.model.helper.TranslationHelper;
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -12,6 +14,7 @@ public class TransactionTypeInquiry implements Serializable {
     private String lob;
     private String deptCd;
     private String docTypeCd;
+    private String locale;
 
     private Set<TransactionType> listOfTransactionTypes;
 
@@ -55,6 +58,14 @@ public class TransactionTypeInquiry implements Serializable {
         this.listOfTransactionTypes = listOfTransactionTypes;
     }
 
+    public String getLocale() {
+        return locale;
+    }
+
+    public void setLocale(String locale) {
+        this.locale = locale;
+    }
+
     // adds a transactionType to listOfTransactionTypes
     public void addTransactionType(TransactionType transactionType) {
         if (null == listOfTransactionTypes) {
@@ -69,6 +80,15 @@ public class TransactionTypeInquiry implements Serializable {
         addTransactionType(transactionType);
     }
 
+    public void translate() {
+        if (null != listOfTransactionTypes) {
+            TranslationHelper helper = TranslationHelper.getInstance();
+            for (TransactionType t : listOfTransactionTypes) {
+                t.translate(locale);
+            }
+        }
+    }
+
     @Override
     public String toString() {
         return "TransactionTypeInquiry{" +
@@ -76,6 +96,7 @@ public class TransactionTypeInquiry implements Serializable {
                 ", lob='" + lob + '\'' +
                 ", deptCd='" + deptCd + '\'' +
                 ", docTypeCd='" + docTypeCd + '\'' +
+                ", locale='" + locale + '\'' +
                 ", listOfTransactionTypes=" + listOfTransactionTypes +
                 '}';
     }

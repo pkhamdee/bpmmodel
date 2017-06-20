@@ -12,7 +12,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="amq-workitem-handler" target="1.5" />
-      <module name="bpms-model" target="1.5" />
+      <module name="bpms-model" target="1.8" />
       <module name="ezflow-bpms-parent" target="1.5" />
     </bytecodeTargetLevel>
   </component>
