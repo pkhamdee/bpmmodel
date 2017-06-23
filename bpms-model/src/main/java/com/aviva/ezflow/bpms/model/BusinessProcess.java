@@ -8,13 +8,13 @@ import java.util.ArrayList;
  */
 public class BusinessProcess implements Serializable {
 
-    String processInstanceId;
-    String policyNo;
-    String workItemId;
-    ConcurrentDetails concurrentObjectModel;
-    boolean isCorporate ;
-    int priority = 0;
-    ArrayList<BusinessTask> businessTasks = new ArrayList<BusinessTask>();
+    private String processInstanceId;
+    private String policyNo;
+    private String workItemId;
+    private ConcurrentDetails concurrentObjectModel;
+    private boolean isCorporate ;
+    private int priority = 0;
+    private ArrayList<BusinessTask> businessTasks = new ArrayList<BusinessTask>();
 
     public BusinessProcess(String processInstanceId, String policyNo, String workItemId, ConcurrentDetails concurrentObjectModel, int priority, ArrayList<BusinessTask> businessTasks) {
         this.processInstanceId = processInstanceId;

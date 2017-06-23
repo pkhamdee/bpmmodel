@@ -6,9 +6,10 @@ import java.io.Serializable;
  * Created by kianhockting on 21/06/2017.
  */
 public class CommonHeader implements Serializable {
-    String countryCd;
-    String sourceSystemCd;
-    String lobCd;
+
+    private String countryCd;
+    private String sourceSystemCd;
+    private String lobCd;
 
     public CommonHeader(String countryCd, String sourceSystemCd, String lobCd) {
         this.countryCd = countryCd;
