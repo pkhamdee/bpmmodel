@@ -1,4 +1,4 @@
-package com.aviva.ezflow.rules.model;
+package com.aviva.ezflow.model;
 
 import java.io.Serializable;
 import java.util.HashSet;

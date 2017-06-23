@@ -1,13 +1,14 @@
-package com.aviva.ezflow.rules.model;
+package com.aviva.ezflow.model;
 
-public enum DocTypeKey {
-    CLIENT("Client"),
-    POLICY("Policy"),
-    LEGAL("Legal");
+public enum Action {
+
+    CREATE("C"),
+    AMEND("A"),
+    FILE("F");
 
     private final String CODE;
 
-    private DocTypeKey(String code) {
+    private Action(String code) {
         this.CODE = code;
     }
 

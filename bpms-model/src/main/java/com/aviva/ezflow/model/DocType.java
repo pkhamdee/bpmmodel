@@ -1,4 +1,4 @@
-package com.aviva.ezflow.rules.model;
+package com.aviva.ezflow.model;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -8,7 +8,6 @@ public class DocType implements Serializable {
 
     private static final long serialVersionUID = 8502099560273656195L;
 
-    private String lob;
     private String docTypeCd;
     private String docTypeDesc;
     private Set<DocTypeKey> listOfDocTypeKeys;
@@ -51,15 +50,12 @@ public class DocType implements Serializable {
 
         DocType docType = (DocType) o;
 
-        if (lob != null ? !lob.equals(docType.lob) : docType.lob != null) return false;
         return docTypeCd != null ? docTypeCd.equals(docType.docTypeCd) : docType.docTypeCd == null;
     }
 
     @Override
     public int hashCode() {
-        int result = lob != null ? lob.hashCode() : 0;
-        result = 31 * result + (docTypeCd != null ? docTypeCd.hashCode() : 0);
-        return result;
+        return docTypeCd != null ? docTypeCd.hashCode() : 0;
     }
 
     @Override

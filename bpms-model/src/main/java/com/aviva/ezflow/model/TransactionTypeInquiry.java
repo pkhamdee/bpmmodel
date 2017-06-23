@@ -1,6 +1,6 @@
-package com.aviva.ezflow.rules.model;
+package com.aviva.ezflow.model;
 
-import com.aviva.ezflow.rules.model.helper.TranslationHelper;
+import com.aviva.ezflow.model.helper.TranslationHelper;
 
 import java.io.Serializable;
 import java.util.HashSet;

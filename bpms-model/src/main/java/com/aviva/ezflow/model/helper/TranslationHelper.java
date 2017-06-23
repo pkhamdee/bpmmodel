@@ -1,4 +1,4 @@
-package com.aviva.ezflow.rules.model.helper;
+package com.aviva.ezflow.model.helper;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
