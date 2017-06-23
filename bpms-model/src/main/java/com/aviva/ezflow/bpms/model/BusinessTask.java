@@ -9,6 +9,9 @@ public class BusinessTask implements Serializable {
     DateTime expiryDate;
     private String deploymentId;
     private String taskId;
+    private String taskName;
+    private String taskDec;
+
     private String processInstanceId;
     private String mainProcessInstanceId;
     private String pathCode; //Only for request

@@ -7,12 +7,10 @@ package com.aviva.ezflow.bpms.model;
 public class EZFlowBPM {
     private CommonHeader commonHeader;
     private BusinessProcess businessProcess;
-    private BusinessTask businessTask;
 
     public EZFlowBPM(CommonHeader commonHeader, BusinessProcess businessProcess, BusinessTask businessTask) {
         this.commonHeader = commonHeader;
         this.businessProcess = businessProcess;
-        this.businessTask = businessTask;
     }
 
     public CommonHeader getCommonHeader() {
@@ -31,13 +29,6 @@ public class EZFlowBPM {
         this.businessProcess = businessProcess;
     }
 
-    public BusinessTask getBusinessTask() {
-        return businessTask;
-    }
-
-    public void setBusinessTask(BusinessTask businessTask) {
-        this.businessTask = businessTask;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -48,17 +39,13 @@ public class EZFlowBPM {
 
         if (getCommonHeader() != null ? !getCommonHeader().equals(ezFlowBPM.getCommonHeader()) : ezFlowBPM.getCommonHeader() != null)
             return false;
-        if (getBusinessProcess() != null ? !getBusinessProcess().equals(ezFlowBPM.getBusinessProcess()) : ezFlowBPM.getBusinessProcess() != null)
-            return false;
-        return getBusinessTask() != null ? getBusinessTask().equals(ezFlowBPM.getBusinessTask()) : ezFlowBPM.getBusinessTask() == null;
+        return getBusinessProcess() != null ? getBusinessProcess().equals(ezFlowBPM.getBusinessProcess()) : ezFlowBPM.getBusinessProcess() == null;
     }
 
     @Override
     public int hashCode() {
         int result = getCommonHeader() != null ? getCommonHeader().hashCode() : 0;
         result = 31 * result + (getBusinessProcess() != null ? getBusinessProcess().hashCode() : 0);
-        result = 31 * result + (getBusinessTask() != null ? getBusinessTask().hashCode() : 0);
         return result;
     }
-
 }
