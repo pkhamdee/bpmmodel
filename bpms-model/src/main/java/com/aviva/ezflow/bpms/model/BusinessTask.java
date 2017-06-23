@@ -6,6 +6,7 @@ import java.io.Serializable;
  * Created by kianhockting on 22/06/2017.
  */
 public class BusinessTask implements Serializable {
+
     DateTime expiryDate;
     private String deploymentId;
     private String taskId;
@@ -76,7 +77,6 @@ public class BusinessTask implements Serializable {
     }
 
     public String getDeploymentId() {
-
         return deploymentId;
     }
 
