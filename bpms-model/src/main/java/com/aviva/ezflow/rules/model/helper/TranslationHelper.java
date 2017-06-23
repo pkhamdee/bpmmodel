@@ -18,8 +18,8 @@ public class TranslationHelper {
 
     private static final int DEFAULT_HOURS_TO_EXPIRE = 8;
     private static final String DEFAULT_TRANSLATION_MAPS_DIR = "translations";
-    private static final String TRANSLATION_CACHE_EXPIRY_HOURS_KEY = "ezflow.translation.expiry.hours";
-    private static final String TRANSLATION_MAPS_PROPERTY_KEY = "ezflow.translation.dir";
+    private static final String TRANSLATION_CACHE_EXPIRY_HOURS_KEY = "ezflow_translation_expiry_hours";
+    private static final String TRANSLATION_MAPS_PROPERTY_KEY = "ezflow_translation_dir";
 
     private static final String TRANSLATION_MAPS_SUFFIX = ".properties";
 

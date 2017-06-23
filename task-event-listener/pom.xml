@@ -10,7 +10,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>task-event-listener</artifactId>
-    
+
+    <distributionManagement>
+        <repository>
+            <id>guvnor-m2-repo</id>
+            <name>maven repo</name>
+            <url>http://localhost:8080/business-central/maven2/</url>
+            <layout>default</layout>
+        </repository>
+    </distributionManagement>
+
     <build>
         <plugins>
             <plugin>
@@ -29,6 +38,12 @@
         <dependency>
             <groupId>org.kie</groupId>
             <artifactId>kie-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
