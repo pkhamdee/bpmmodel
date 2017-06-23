@@ -6,10 +6,11 @@ import java.io.Serializable;
  * Created by kianhockting on 22/06/2017.
  */
 public class BusinessTask implements Serializable {
-    String taskId;
-    String processInstanceId;
-    String mainProcessInstanceId;
-    String pathCode; //Only for request
+    private String deploymentId ;
+    private String taskId;
+    private String processInstanceId;
+    private String mainProcessInstanceId;
+    private String pathCode; //Only for request
     DateTime expiryDate;
 
     public BusinessTask(String taskId, String processInstanceId, String mainProcessInstanceId, String pathCode, DateTime expiryDate) {

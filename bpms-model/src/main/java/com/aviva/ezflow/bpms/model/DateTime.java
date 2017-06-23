@@ -7,12 +7,12 @@ import java.io.Serializable;
  */
 
 public class DateTime implements Serializable {
-    String year;
-    String month;
-    String dayOfMonth;
-    String hourOfDay;
-    String minute;
-    String second;
+    private String year;
+    private String month;
+    private String dayOfMonth;
+    private String hourOfDay;
+    private String minute;
+    private String second;
 
     public DateTime(String year, String month, String dayOfMonth, String hourOfDay, String minute, String second) {
         this.year = year;

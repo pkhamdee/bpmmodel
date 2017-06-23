@@ -8,18 +8,29 @@ import java.util.ArrayList;
  */
 public class BusinessProcess implements Serializable {
 
-    String processInstanceId;
-    String policyNo;
-    String workItemId;
-    ConcurrentDetails concurrentObjectModel;
-    int priority = 0;
-    ArrayList<BusinessTask> businessTasks = new ArrayList<BusinessTask>();
+    private String processInstanceId;
+    private String policyNo;
+    private String workItemId;
+    private ConcurrentDetails concurrentObjectModel;
+    private boolean isCorporate ;
+    private int priority = 0;
+    private ArrayList<BusinessTask> businessTasks = new ArrayList<BusinessTask>();
 
     public BusinessProcess(String processInstanceId, String policyNo, String workItemId, ConcurrentDetails concurrentObjectModel, int priority, ArrayList<BusinessTask> businessTasks) {
         this.processInstanceId = processInstanceId;
         this.policyNo = policyNo;
         this.workItemId = workItemId;
         this.concurrentObjectModel = concurrentObjectModel;
+        this.priority = priority;
+        this.businessTasks = businessTasks;
+    }
+
+    public BusinessProcess(String processInstanceId, String policyNo, String workItemId, ConcurrentDetails concurrentObjectModel, boolean isCorporate, int priority, ArrayList<BusinessTask> businessTasks) {
+        this.processInstanceId = processInstanceId;
+        this.policyNo = policyNo;
+        this.workItemId = workItemId;
+        this.concurrentObjectModel = concurrentObjectModel;
+        this.isCorporate = isCorporate;
         this.priority = priority;
         this.businessTasks = businessTasks;
     }
@@ -72,6 +83,14 @@ public class BusinessProcess implements Serializable {
         this.businessTasks = businessTasks;
     }
 
+    public boolean isCorporate() {
+        return isCorporate;
+    }
+
+    public void setCorporate(boolean corporate) {
+        isCorporate = corporate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -79,6 +98,7 @@ public class BusinessProcess implements Serializable {
 
         BusinessProcess that = (BusinessProcess) o;
 
+        if (isCorporate() != that.isCorporate()) return false;
         if (getPriority() != that.getPriority()) return false;
         if (getProcessInstanceId() != null ? !getProcessInstanceId().equals(that.getProcessInstanceId()) : that.getProcessInstanceId() != null)
             return false;
@@ -97,6 +117,7 @@ public class BusinessProcess implements Serializable {
         result = 31 * result + (getPolicyNo() != null ? getPolicyNo().hashCode() : 0);
         result = 31 * result + (getWorkItemId() != null ? getWorkItemId().hashCode() : 0);
         result = 31 * result + (getConcurrentObjectModel() != null ? getConcurrentObjectModel().hashCode() : 0);
+        result = 31 * result + (isCorporate() ? 1 : 0);
         result = 31 * result + getPriority();
         result = 31 * result + (getBusinessTasks() != null ? getBusinessTasks().hashCode() : 0);
         return result;

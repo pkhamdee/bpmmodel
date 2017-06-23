@@ -1,12 +1,14 @@
 package com.aviva.ezflow.bpms.model;
 
+import java.io.Serializable;
+
 /**
  * Created by kianhockting on 22/06/2017.
  */
 public class ConcurrentDetails implements Serializable {
 
-    String concurrentBatchId;
-    String concurrentSequence;
+   private String concurrentBatchId;
+   private String concurrentSequence;
 
     public ConcurrentDetails(String concurrentBatchId, String concurrentSequence) {
         this.concurrentBatchId = concurrentBatchId;
