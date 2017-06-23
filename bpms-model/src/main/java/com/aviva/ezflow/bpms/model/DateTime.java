@@ -1,16 +1,18 @@
 package com.aviva.ezflow.bpms.model;
 
+import java.io.Serializable;
+
 /**
  * Created by kianhockting on 22/06/2017.
  */
 
-public class DateTime {
-    String year ;
-    String month ;
-    String dayOfMonth ;
-    String hourOfDay ;
-    String minute ;
-    String second ;
+public class DateTime implements Serializable {
+    String year;
+    String month;
+    String dayOfMonth;
+    String hourOfDay;
+    String minute;
+    String second;
 
     public DateTime(String year, String month, String dayOfMonth, String hourOfDay, String minute, String second) {
         this.year = year;

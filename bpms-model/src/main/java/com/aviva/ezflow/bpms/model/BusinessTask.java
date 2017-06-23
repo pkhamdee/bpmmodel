@@ -1,14 +1,16 @@
 package com.aviva.ezflow.bpms.model;
 
+import java.io.Serializable;
+
 /**
  * Created by kianhockting on 22/06/2017.
  */
-public class BusinessTask {
-    String taskId ;
+public class BusinessTask implements Serializable {
+    String taskId;
     String processInstanceId;
     String mainProcessInstanceId;
-    String pathCode ; //Only for request
-    DateTime expiryDate ;
+    String pathCode; //Only for request
+    DateTime expiryDate;
 
     public BusinessTask(String taskId, String processInstanceId, String mainProcessInstanceId, String pathCode, DateTime expiryDate) {
         this.taskId = taskId;

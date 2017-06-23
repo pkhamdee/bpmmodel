@@ -1,9 +1,11 @@
 package com.aviva.ezflow.bpms.model;
 
+import java.io.Serializable;
+
 /**
  * Created by kianhockting on 21/06/2017.
  */
-public class CommonHeader {
+public class CommonHeader implements Serializable {
     String countryCd;
     String sourceSystemCd;
     String lobCd;
