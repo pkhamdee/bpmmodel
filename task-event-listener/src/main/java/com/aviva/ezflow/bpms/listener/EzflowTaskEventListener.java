@@ -1,5 +1,7 @@
 package com.aviva.ezflow.bpms.listener;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.kie.api.task.TaskEvent;
 import org.kie.api.task.TaskLifeCycleEventListener;
 import org.slf4j.Logger;
@@ -7,7 +9,7 @@ import org.slf4j.LoggerFactory;
 
 public class EzflowTaskEventListener implements TaskLifeCycleEventListener {
 
-    private static Logger LOGGER = LoggerFactory.getLogger(EzflowTaskEventListener.class);
+    private static Logger LOG = LoggerFactory.getLogger(EzflowTaskEventListener.class);
 
     public void beforeTaskActivatedEvent(TaskEvent taskEvent) {
 
@@ -38,7 +40,11 @@ public class EzflowTaskEventListener implements TaskLifeCycleEventListener {
     }
 
     public void beforeTaskAddedEvent(TaskEvent taskEvent) {
-
+        if (LOG.isTraceEnabled()) {
+            LOG.trace("## beforeTaskAddedEvent, taskId:{}, taskData:{}",
+                    taskEvent.getTask().getId(),
+                    ToStringBuilder.reflectionToString(taskEvent.getTask().getTaskData(), ToStringStyle.MULTI_LINE_STYLE));
+        }
     }
 
     public void beforeTaskExitedEvent(TaskEvent taskEvent) {
@@ -98,7 +104,11 @@ public class EzflowTaskEventListener implements TaskLifeCycleEventListener {
     }
 
     public void afterTaskAddedEvent(TaskEvent taskEvent) {
-
+        if (LOG.isTraceEnabled()) {
+            LOG.trace("## afterTaskAddedEvent, taskId:{}, taskData:{}",
+                    taskEvent.getTask().getId(),
+                    ToStringBuilder.reflectionToString(taskEvent.getTask().getTaskData(), ToStringStyle.MULTI_LINE_STYLE));
+        }
     }
 
     public void afterTaskExitedEvent(TaskEvent taskEvent) {
