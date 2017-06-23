@@ -7,8 +7,8 @@ import java.io.Serializable;
  */
 public class ConcurrentDetails implements Serializable {
 
-   private String concurrentBatchId;
-   private String concurrentSequence;
+    private String concurrentBatchId;
+    private String concurrentSequence;
 
     public ConcurrentDetails(String concurrentBatchId, String concurrentSequence) {
         this.concurrentBatchId = concurrentBatchId;

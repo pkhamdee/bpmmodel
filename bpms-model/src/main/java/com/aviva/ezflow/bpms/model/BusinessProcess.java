@@ -12,7 +12,7 @@ public class BusinessProcess implements Serializable {
     private String policyNo;
     private String workItemId;
     private ConcurrentDetails concurrentObjectModel;
-    private boolean isCorporate ;
+    private boolean isCorporate;
     private int priority = 0;
     private ArrayList<BusinessTask> businessTasks = new ArrayList<BusinessTask>();
 
