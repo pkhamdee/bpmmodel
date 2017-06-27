@@ -69,7 +69,7 @@ public class TransactionTypeInquiry implements Serializable {
     // adds a transactionType to listOfTransactionTypes
     public void addTransactionType(TransactionType transactionType) {
         if (null == listOfTransactionTypes) {
-            listOfTransactionTypes = new HashSet<TransactionType>();
+            listOfTransactionTypes = new HashSet<>();
         }
         listOfTransactionTypes.add(transactionType);
     }
