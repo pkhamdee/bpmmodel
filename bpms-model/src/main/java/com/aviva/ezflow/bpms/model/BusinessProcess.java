@@ -12,11 +12,12 @@ public class BusinessProcess implements Serializable {
     private String workItemId;
     private ConcurrentDetails concurrentObjectModel;
     private Document document;
-    private PolicyObject policyObject ;
+    private PolicyObject policyObject;
 
     private boolean isCorporate;
     private int priority = 0;
     private ArrayList<BusinessTask> businessTasks = new ArrayList<BusinessTask>();
+
     public BusinessProcess(String processInstanceId, String policyNo, String workItemId, ConcurrentDetails concurrentObjectModel, int priority, ArrayList<BusinessTask> businessTasks) {
         this.processInstanceId = processInstanceId;
         this.workItemId = workItemId;
@@ -24,6 +25,7 @@ public class BusinessProcess implements Serializable {
         this.priority = priority;
         this.businessTasks = businessTasks;
     }
+
     public BusinessProcess(String processInstanceId, String policyNo, String workItemId, ConcurrentDetails concurrentObjectModel, boolean isCorporate, int priority, ArrayList<BusinessTask> businessTasks) {
         this.processInstanceId = processInstanceId;
         this.workItemId = workItemId;

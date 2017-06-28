@@ -3,10 +3,11 @@ package com.aviva.ezflow.bpms.model;
 
 import java.io.Serializable;
 import java.util.Calendar;
+
 /**
  * Created by kianhockting on 27/06/2017.
  */
-public class LifeAssured implements Serializable{
+public class LifeAssured implements Serializable {
 
     private String clientNo;
     private String lifeAssuredName;

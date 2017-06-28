@@ -7,10 +7,51 @@ package com.aviva.ezflow.bpms.model;
 public class EZFlowBPM {
     private CommonHeader commonHeader;
     private BusinessProcess businessProcess;
+    private BusinessTask businessTask;
+
 
     public EZFlowBPM(CommonHeader commonHeader, BusinessProcess businessProcess, BusinessTask businessTask) {
         this.commonHeader = commonHeader;
         this.businessProcess = businessProcess;
+    }
+
+    public BusinessTask getBusinessTask() {
+        return businessTask;
+    }
+
+    public void setBusinessTask(BusinessTask businessTask) {
+        this.businessTask = businessTask;
+    }
+
+    @Override
+    public String toString() {
+        return "EZFlowBPM{" +
+                "commonHeader=" + commonHeader +
+                ", businessProcess=" + businessProcess +
+                ", businessTask=" + businessTask +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof EZFlowBPM)) return false;
+
+        EZFlowBPM ezFlowBPM = (EZFlowBPM) o;
+
+        if (getCommonHeader() != null ? !getCommonHeader().equals(ezFlowBPM.getCommonHeader()) : ezFlowBPM.getCommonHeader() != null)
+            return false;
+        if (getBusinessProcess() != null ? !getBusinessProcess().equals(ezFlowBPM.getBusinessProcess()) : ezFlowBPM.getBusinessProcess() != null)
+            return false;
+        return getBusinessTask() != null ? getBusinessTask().equals(ezFlowBPM.getBusinessTask()) : ezFlowBPM.getBusinessTask() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getCommonHeader() != null ? getCommonHeader().hashCode() : 0;
+        result = 31 * result + (getBusinessProcess() != null ? getBusinessProcess().hashCode() : 0);
+        result = 31 * result + (getBusinessTask() != null ? getBusinessTask().hashCode() : 0);
+        return result;
     }
 
     public CommonHeader getCommonHeader() {
@@ -30,22 +71,4 @@ public class EZFlowBPM {
     }
 
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof EZFlowBPM)) return false;
-
-        EZFlowBPM ezFlowBPM = (EZFlowBPM) o;
-
-        if (getCommonHeader() != null ? !getCommonHeader().equals(ezFlowBPM.getCommonHeader()) : ezFlowBPM.getCommonHeader() != null)
-            return false;
-        return getBusinessProcess() != null ? getBusinessProcess().equals(ezFlowBPM.getBusinessProcess()) : ezFlowBPM.getBusinessProcess() == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = getCommonHeader() != null ? getCommonHeader().hashCode() : 0;
-        result = 31 * result + (getBusinessProcess() != null ? getBusinessProcess().hashCode() : 0);
-        return result;
-    }
 }
