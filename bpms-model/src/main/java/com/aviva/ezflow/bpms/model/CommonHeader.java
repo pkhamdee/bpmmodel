@@ -10,6 +10,7 @@ public class CommonHeader implements Serializable {
     private String countryCd;
     private String sourceSystemCd;
     private String lobCd;
+    private String deptCd;
 
     public CommonHeader(String countryCd, String sourceSystemCd, String lobCd) {
         this.countryCd = countryCd;

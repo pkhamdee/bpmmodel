@@ -7,65 +7,83 @@ import java.util.ArrayList;
  * Created by kianhockting on 21/06/2017.
  */
 public class BusinessProcess implements Serializable {
-
+    private CommonHeader commonHeader;
     private String processInstanceId;
     private String workItemId;
-    private ConcurrentDetails concurrentObjectModel;
+    private ConcurrentDetails concurrentDetails;
     private Document document;
     private PolicyObject policyObject;
-
     private boolean isCorporate;
     private int priority = 0;
-    private ArrayList<BusinessTask> businessTasks = new ArrayList<BusinessTask>();
 
-    public BusinessProcess(String processInstanceId, String policyNo, String workItemId, ConcurrentDetails concurrentObjectModel, int priority, ArrayList<BusinessTask> businessTasks) {
+    public BusinessProcess(CommonHeader commonHeader, String processInstanceId, String workItemId, ConcurrentDetails concurrentDetails, Document document, PolicyObject policyObject, boolean isCorporate, int priority) {
+
+        this.commonHeader = commonHeader;
         this.processInstanceId = processInstanceId;
         this.workItemId = workItemId;
-        this.concurrentObjectModel = concurrentObjectModel;
-        this.priority = priority;
-        this.businessTasks = businessTasks;
-    }
-
-    public BusinessProcess(String processInstanceId, String policyNo, String workItemId, ConcurrentDetails concurrentObjectModel, boolean isCorporate, int priority, ArrayList<BusinessTask> businessTasks) {
-        this.processInstanceId = processInstanceId;
-        this.workItemId = workItemId;
-        this.concurrentObjectModel = concurrentObjectModel;
-        this.isCorporate = isCorporate;
-        this.priority = priority;
-        this.businessTasks = businessTasks;
-    }
-
-    public BusinessProcess(String processInstanceId, String workItemId, String policyNo, String workItemId1, ConcurrentDetails concurrentObjectModel, boolean isCorporate, int priority, ArrayList<BusinessTask> businessTasks) {
-        this.processInstanceId = processInstanceId;
-        this.workItemId = workItemId;
-        this.workItemId = workItemId1;
-        this.concurrentObjectModel = concurrentObjectModel;
-        this.isCorporate = isCorporate;
-        this.priority = priority;
-        this.businessTasks = businessTasks;
-    }
-
-    public BusinessProcess(String processInstanceId, String workItemId, String policyNo, String workItemId1, ConcurrentDetails concurrentObjectModel, Document document, boolean isCorporate, int priority, ArrayList<BusinessTask> businessTasks) {
-        this.processInstanceId = processInstanceId;
-        this.workItemId = workItemId;
-        this.workItemId = workItemId1;
-        this.concurrentObjectModel = concurrentObjectModel;
-        this.document = document;
-        this.isCorporate = isCorporate;
-        this.priority = priority;
-        this.businessTasks = businessTasks;
-    }
-
-    public BusinessProcess(String processInstanceId, String workItemId, String workItemId1, ConcurrentDetails concurrentObjectModel, Document document, PolicyObject policyObject, boolean isCorporate, int priority, ArrayList<BusinessTask> businessTasks) {
-        this.processInstanceId = processInstanceId;
-        this.workItemId = workItemId;
-        this.workItemId = workItemId1;
-        this.concurrentObjectModel = concurrentObjectModel;
+        this.concurrentDetails = concurrentDetails;
         this.document = document;
         this.policyObject = policyObject;
         this.isCorporate = isCorporate;
         this.priority = priority;
-        this.businessTasks = businessTasks;
+    }
+
+    @Override
+    public String toString() {
+        return "BusinessProcess{" +
+                "commonHeader=" + commonHeader +
+                ", processInstanceId='" + processInstanceId + '\'' +
+                ", workItemId='" + workItemId + '\'' +
+                ", concurrentDetails=" + concurrentDetails +
+                ", document=" + document +
+                ", policyObject=" + policyObject +
+                ", isCorporate=" + isCorporate +
+                ", priority=" + priority +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof BusinessProcess)) return false;
+
+        BusinessProcess that = (BusinessProcess) o;
+
+        if (isCorporate() != that.isCorporate()) return false;
+        if (getPriority() != that.getPriority()) return false;
+        if (getCommonHeader() != null ? !getCommonHeader().equals(that.getCommonHeader()) : that.getCommonHeader() != null)
+            return false;
+        if (getProcessInstanceId() != null ? !getProcessInstanceId().equals(that.getProcessInstanceId()) : that.getProcessInstanceId() != null)
+            return false;
+        if (getWorkItemId() != null ? !getWorkItemId().equals(that.getWorkItemId()) : that.getWorkItemId() != null)
+            return false;
+        if (getConcurrentDetails() != null ? !getConcurrentDetails().equals(that.getConcurrentDetails()) : that.getConcurrentDetails() != null)
+            return false;
+        if (getDocument() != null ? !getDocument().equals(that.getDocument()) : that.getDocument() != null)
+            return false;
+        return getPolicyObject() != null ? getPolicyObject().equals(that.getPolicyObject()) : that.getPolicyObject() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getCommonHeader() != null ? getCommonHeader().hashCode() : 0;
+        result = 31 * result + (getProcessInstanceId() != null ? getProcessInstanceId().hashCode() : 0);
+        result = 31 * result + (getWorkItemId() != null ? getWorkItemId().hashCode() : 0);
+        result = 31 * result + (getConcurrentDetails() != null ? getConcurrentDetails().hashCode() : 0);
+        result = 31 * result + (getDocument() != null ? getDocument().hashCode() : 0);
+        result = 31 * result + (getPolicyObject() != null ? getPolicyObject().hashCode() : 0);
+        result = 31 * result + (isCorporate() ? 1 : 0);
+        result = 31 * result + getPriority();
+        return result;
+    }
+
+    public CommonHeader getCommonHeader() {
+
+        return commonHeader;
+    }
+
+    public void setCommonHeader(CommonHeader commonHeader) {
+        this.commonHeader = commonHeader;
     }
 
     public String getProcessInstanceId() {
@@ -84,36 +102,12 @@ public class BusinessProcess implements Serializable {
         this.workItemId = workItemId;
     }
 
-    public ConcurrentDetails getConcurrentObjectModel() {
-        return concurrentObjectModel;
+    public ConcurrentDetails getConcurrentDetails() {
+        return concurrentDetails;
     }
 
-    public void setConcurrentObjectModel(ConcurrentDetails concurrentObjectModel) {
-        this.concurrentObjectModel = concurrentObjectModel;
-    }
-
-    public int getPriority() {
-        return priority;
-    }
-
-    public void setPriority(int priority) {
-        this.priority = priority;
-    }
-
-    public ArrayList<BusinessTask> getBusinessTasks() {
-        return businessTasks;
-    }
-
-    public void setBusinessTasks(ArrayList<BusinessTask> businessTasks) {
-        this.businessTasks = businessTasks;
-    }
-
-    public boolean isCorporate() {
-        return isCorporate;
-    }
-
-    public void setCorporate(boolean corporate) {
-        isCorporate = corporate;
+    public void setConcurrentDetails(ConcurrentDetails concurrentDetails) {
+        this.concurrentDetails = concurrentDetails;
     }
 
     public Document getDocument() {
@@ -132,56 +126,19 @@ public class BusinessProcess implements Serializable {
         this.policyObject = policyObject;
     }
 
-    @Override
-    public String toString() {
-        return "BusinessProcess{" +
-                "processInstanceId='" + processInstanceId + '\'' +
-                ", workItemId='" + workItemId + '\'' +
-                ", workItemId='" + workItemId + '\'' +
-                ", concurrentObjectModel=" + concurrentObjectModel +
-                ", document=" + document +
-                ", policyObject=" + policyObject +
-                ", isCorporate=" + isCorporate +
-                ", priority=" + priority +
-                ", businessTasks=" + businessTasks +
-                '}';
+    public boolean isCorporate() {
+        return isCorporate;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof BusinessProcess)) return false;
-
-        BusinessProcess that = (BusinessProcess) o;
-
-        if (isCorporate() != that.isCorporate()) return false;
-        if (getPriority() != that.getPriority()) return false;
-        if (getProcessInstanceId() != null ? !getProcessInstanceId().equals(that.getProcessInstanceId()) : that.getProcessInstanceId() != null)
-            return false;
-        if (getWorkItemId() != null ? !getWorkItemId().equals(that.getWorkItemId()) : that.getWorkItemId() != null)
-            return false;
-        if (getWorkItemId() != null ? !getWorkItemId().equals(that.getWorkItemId()) : that.getWorkItemId() != null)
-            return false;
-        if (getConcurrentObjectModel() != null ? !getConcurrentObjectModel().equals(that.getConcurrentObjectModel()) : that.getConcurrentObjectModel() != null)
-            return false;
-        if (getDocument() != null ? !getDocument().equals(that.getDocument()) : that.getDocument() != null)
-            return false;
-        if (getPolicyObject() != null ? !getPolicyObject().equals(that.getPolicyObject()) : that.getPolicyObject() != null)
-            return false;
-        return getBusinessTasks() != null ? getBusinessTasks().equals(that.getBusinessTasks()) : that.getBusinessTasks() == null;
+    public void setCorporate(boolean corporate) {
+        isCorporate = corporate;
     }
 
-    @Override
-    public int hashCode() {
-        int result = getProcessInstanceId() != null ? getProcessInstanceId().hashCode() : 0;
-        result = 31 * result + (getWorkItemId() != null ? getWorkItemId().hashCode() : 0);
-        result = 31 * result + (getWorkItemId() != null ? getWorkItemId().hashCode() : 0);
-        result = 31 * result + (getConcurrentObjectModel() != null ? getConcurrentObjectModel().hashCode() : 0);
-        result = 31 * result + (getDocument() != null ? getDocument().hashCode() : 0);
-        result = 31 * result + (getPolicyObject() != null ? getPolicyObject().hashCode() : 0);
-        result = 31 * result + (isCorporate() ? 1 : 0);
-        result = 31 * result + getPriority();
-        result = 31 * result + (getBusinessTasks() != null ? getBusinessTasks().hashCode() : 0);
-        return result;
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 }

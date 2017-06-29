@@ -8,11 +8,13 @@ import java.io.Serializable;
 public class ConcurrentDetails implements Serializable {
 
     private String concurrentBatchId;
-    private String concurrentSequence;
+    private int concurrentSequence;
+    private int concurrentTotal;
 
-    public ConcurrentDetails(String concurrentBatchId, String concurrentSequence) {
+    public ConcurrentDetails(String concurrentBatchId, int concurrentSequence, int concurrentTotal) {
         this.concurrentBatchId = concurrentBatchId;
         this.concurrentSequence = concurrentSequence;
+        this.concurrentTotal = concurrentTotal;
     }
 
     public String getConcurrentBatchId() {
@@ -23,12 +25,20 @@ public class ConcurrentDetails implements Serializable {
         this.concurrentBatchId = concurrentBatchId;
     }
 
-    public String getConcurrentSequence() {
+    public int getConcurrentSequence() {
         return concurrentSequence;
     }
 
-    public void setConcurrentSequence(String concurrentSequence) {
+    public void setConcurrentSequence(int concurrentSequence) {
         this.concurrentSequence = concurrentSequence;
+    }
+
+    public int getConcurrentTotal() {
+        return concurrentTotal;
+    }
+
+    public void setConcurrentTotal(int concurrentTotal) {
+        this.concurrentTotal = concurrentTotal;
     }
 
     @Override
@@ -38,24 +48,25 @@ public class ConcurrentDetails implements Serializable {
 
         ConcurrentDetails that = (ConcurrentDetails) o;
 
-        if (getConcurrentBatchId() != null ? !getConcurrentBatchId().equals(that.getConcurrentBatchId()) : that.getConcurrentBatchId() != null)
-            return false;
-        return getConcurrentSequence() != null ? getConcurrentSequence().equals(that.getConcurrentSequence()) : that.getConcurrentSequence() == null;
+        if (getConcurrentSequence() != that.getConcurrentSequence()) return false;
+        if (getConcurrentTotal() != that.getConcurrentTotal()) return false;
+        return getConcurrentBatchId() != null ? getConcurrentBatchId().equals(that.getConcurrentBatchId()) : that.getConcurrentBatchId() == null;
     }
 
     @Override
     public int hashCode() {
         int result = getConcurrentBatchId() != null ? getConcurrentBatchId().hashCode() : 0;
-        result = 31 * result + (getConcurrentSequence() != null ? getConcurrentSequence().hashCode() : 0);
+        result = 31 * result + getConcurrentSequence();
+        result = 31 * result + getConcurrentTotal();
         return result;
     }
-
 
     @Override
     public String toString() {
         return "ConcurrentDetails{" +
                 "concurrentBatchId='" + concurrentBatchId + '\'' +
-                ", concurrentSequence='" + concurrentSequence + '\'' +
+                ", concurrentSequence=" + concurrentSequence +
+                ", concurrentTotal=" + concurrentTotal +
                 '}';
     }
 }
