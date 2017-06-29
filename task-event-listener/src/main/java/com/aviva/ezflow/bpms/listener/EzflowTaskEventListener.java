@@ -84,7 +84,11 @@ public class EzflowTaskEventListener implements TaskLifeCycleEventListener {
     }
 
     public void afterTaskSkippedEvent(TaskEvent taskEvent) {
-
+        if (LOG.isTraceEnabled()) {
+            LOG.trace("## afterTaskSkippedEvent, taskId:{}, taskData:{}",
+                    taskEvent.getTask().getId(),
+                    ToStringBuilder.reflectionToString(taskEvent.getTask().getTaskData(), ToStringStyle.MULTI_LINE_STYLE));
+        }
     }
 
     public void afterTaskStartedEvent(TaskEvent taskEvent) {
@@ -96,11 +100,19 @@ public class EzflowTaskEventListener implements TaskLifeCycleEventListener {
     }
 
     public void afterTaskCompletedEvent(TaskEvent taskEvent) {
-
+        if (LOG.isTraceEnabled()) {
+            LOG.trace("## afterTaskCompletedEvent, taskId:{}, taskData:{}",
+                    taskEvent.getTask().getId(),
+                    ToStringBuilder.reflectionToString(taskEvent.getTask().getTaskData(), ToStringStyle.MULTI_LINE_STYLE));
+        }
     }
 
     public void afterTaskFailedEvent(TaskEvent taskEvent) {
-
+        if (LOG.isTraceEnabled()) {
+            LOG.trace("## afterTaskFailedEvent, taskId:{}, taskData:{}",
+                    taskEvent.getTask().getId(),
+                    ToStringBuilder.reflectionToString(taskEvent.getTask().getTaskData(), ToStringStyle.MULTI_LINE_STYLE));
+        }
     }
 
     public void afterTaskAddedEvent(TaskEvent taskEvent) {
@@ -112,7 +124,11 @@ public class EzflowTaskEventListener implements TaskLifeCycleEventListener {
     }
 
     public void afterTaskExitedEvent(TaskEvent taskEvent) {
-
+        if (LOG.isTraceEnabled()) {
+            LOG.trace("## afterTaskExitedEvent, taskId:{}, taskData:{}",
+                    taskEvent.getTask().getId(),
+                    ToStringBuilder.reflectionToString(taskEvent.getTask().getTaskData(), ToStringStyle.MULTI_LINE_STYLE));
+        }
     }
 
     public void afterTaskReleasedEvent(TaskEvent taskEvent) {
