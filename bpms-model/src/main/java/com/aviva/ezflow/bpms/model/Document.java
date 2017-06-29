@@ -1,13 +1,17 @@
 package com.aviva.ezflow.bpms.model;
 
+import java.io.Serializable;
+
 /**
  * Created by kianhockting on 23/06/2017.
  */
-public class Document {
+public class Document implements Serializable {
     private String deptCd;
     private String lob;
     private String documentType;
     private String transactionType;
+
+    public Document() {}
 
     public Document(String deptCd, String lob, String documentType, String transactionType) {
 

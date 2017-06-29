@@ -16,6 +16,9 @@ public class BusinessProcess implements Serializable {
     private boolean isCorporate;
     private int priority = 0;
 
+    public BusinessProcess() {
+    }
+
     public BusinessProcess(CommonHeader commonHeader, String processInstanceId, String workItemId, ConcurrentDetails concurrentDetails, Document document, PolicyObject policyObject, boolean isCorporate, int priority) {
 
         this.commonHeader = commonHeader;

@@ -14,6 +14,8 @@ public class DateTime implements Serializable {
     private String minute;
     private String second;
 
+    public DateTime() {}
+
     public DateTime(String year, String month, String dayOfMonth, String hourOfDay, String minute, String second) {
         this.year = year;
         this.month = month;

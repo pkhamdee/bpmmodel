@@ -18,6 +18,11 @@ public class BusinessTask implements Serializable {
     private String workItemId;
     private String pathCode; //Only for request
 
+
+    public BusinessTask() {
+
+    }
+
     public BusinessTask(CommonHeader commonHeader, DateTime expiryDate, String deploymentId, String taskId, String taskName, String taskDec, String processInstanceId, String mainProcessInstanceId, String workItemId, String pathCode) {
 
         this.commonHeader = commonHeader;

@@ -14,7 +14,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="amq-workitem-handler" target="1.8" />
-      <module name="bpms-model" target="1.8" />
+      <module name="bpms-model" target="1.7" />
       <module name="ezflow-bpms-parent" target="1.5" />
       <module name="task-event-listener" target="1.8" />
     </bytecodeTargetLevel>

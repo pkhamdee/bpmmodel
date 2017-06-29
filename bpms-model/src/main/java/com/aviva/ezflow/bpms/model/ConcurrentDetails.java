@@ -11,6 +11,9 @@ public class ConcurrentDetails implements Serializable {
     private int concurrentSequence;
     private int concurrentTotal;
 
+    public ConcurrentDetails() {
+    }
+
     public ConcurrentDetails(String concurrentBatchId, int concurrentSequence, int concurrentTotal) {
         this.concurrentBatchId = concurrentBatchId;
         this.concurrentSequence = concurrentSequence;

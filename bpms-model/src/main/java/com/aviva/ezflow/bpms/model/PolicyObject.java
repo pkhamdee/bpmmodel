@@ -1,16 +1,19 @@
 package com.aviva.ezflow.bpms.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by kianhockting on 23/06/2017.
  */
-public class PolicyObject {
+public class PolicyObject implements Serializable {
 
     String applicationNo;
     String policyNo;
     String policyStatus;
     ArrayList<LifeAssured> lifeAssuredList;
+
+    public PolicyObject() {}
 
     public PolicyObject(String applicationNo, String policyNo, String policyStatus, ArrayList<LifeAssured> lifeAssuredList) {
 

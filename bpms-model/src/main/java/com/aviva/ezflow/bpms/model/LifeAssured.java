@@ -16,6 +16,7 @@ public class LifeAssured implements Serializable {
     private Calendar dobBaseCalulatioDate;
     private boolean isMainLifeAssured;
 
+    public LifeAssured() {}
 
     public LifeAssured(String clientNo, String lifeAssuredName, Calendar lifeAssuredDob, int lifeAssuredAge, Calendar dobBaseCalulatioDate, boolean isMainLifeAssured) {
         this.clientNo = clientNo;
