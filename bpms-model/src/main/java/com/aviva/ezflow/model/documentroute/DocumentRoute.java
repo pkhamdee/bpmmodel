@@ -7,7 +7,6 @@ public class DocumentRoute implements java.io.Serializable {
     private java.lang.String transactionTypeCd;
     private com.aviva.ezflow.model.documentroute.DocCheckList docCheckList;
     private com.aviva.ezflow.model.documentroute.RouteInfo routeInfo;
-    private java.lang.String returnReason;
 
     public DocumentRoute() {
     }
@@ -42,13 +41,5 @@ public class DocumentRoute implements java.io.Serializable {
 
     public void setRouteInfo(com.aviva.ezflow.model.documentroute.RouteInfo routeInfo) {
         this.routeInfo = routeInfo;
-    }
-
-    public String getReturnReason() {
-        return returnReason;
-    }
-
-    public void setReturnReason(String returnReason) {
-        this.returnReason = returnReason;
     }
 }

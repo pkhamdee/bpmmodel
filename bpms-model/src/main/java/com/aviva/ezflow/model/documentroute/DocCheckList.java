@@ -1,6 +1,7 @@
 package com.aviva.ezflow.model.documentroute;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class DocCheckList  implements java.io.Serializable{
     private static final long serialVersionUID = 6985595262194995490L;

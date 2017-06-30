@@ -11,6 +11,12 @@ public class Action implements java.io.Serializable {
     public Action() {
     }
 
+    public void addProperty(com.aviva.ezflow.model.documentroute.Property property){
+        if(this.properties == null){
+            this.properties = new java.util.ArrayList<com.aviva.ezflow.model.documentroute.Property>();
+        }
+        this.properties.add(property);
+    }
     public String getActionType() {
         return actionType;
     }
