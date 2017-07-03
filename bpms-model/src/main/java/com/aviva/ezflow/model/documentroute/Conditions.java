@@ -1,5 +1,7 @@
 package com.aviva.ezflow.model.documentroute;
 
+import java.lang.reflect.Field;
+
 public class Conditions implements java.io.Serializable {
     private static final long serialVersionUID = 6411143176022680486L;
 
@@ -17,6 +19,32 @@ public class Conditions implements java.io.Serializable {
     private java.lang.Boolean policyOnHold;
 
     public Conditions() {
+    }
+
+    public void reflectField(String fieldName, String fieldValue){
+        Class condClass = this.getClass();
+        Field field = null;
+        try {
+            field = condClass.getDeclaredField(fieldName);
+            field.setAccessible(true);
+            if(field.getType().equals(Boolean.class)){
+                if(fieldValue.equalsIgnoreCase("YES")){
+                    field.set(this,true);
+                } else if(fieldValue.equalsIgnoreCase("NO")){
+                    field.set(this,false);
+                }
+            }
+            if(field.getType().equals(String.class)){
+                field.set(this,fieldValue);
+            }
+            if(field.getType().equals(Integer.class)){
+                field.set(this,Integer.valueOf(fieldValue));
+            }
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
     }
 
     public Boolean getContractCreated() {
